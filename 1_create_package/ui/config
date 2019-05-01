@@ -1,0 +1,15 @@
+{
+    ".url": {
+        "com.hashicorp.consul": {
+            "type": "url",
+            "allUsers": true,
+            "title": "Consul",
+            "desc": "Consul is a distributed, highly available, and data center aware solution to connect and configure applications across dynamic, distributed infrastructure.",
+            "icon": "consul-{0}.png",
+            "protocol": "http",
+            "url": "/",
+            "port": "8500", 
+            "grantPrivilege": "local"
+        }
+    }
+}
