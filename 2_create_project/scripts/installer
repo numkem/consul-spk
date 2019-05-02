@@ -16,8 +16,6 @@ LOG_FILE="/var/log/consul.log"
 
 CONF_DIR="${INSTALL_DIR}/consul/conf.d"
 
-SETTING_FILE="${INSTALL_DIR}/consul/conf.d/config.hcl"
-
 BACKUP_DIR="/tmp/consul_backup"
 
 LABEL_DIR="${CONF_DIR}/label"
@@ -27,9 +25,11 @@ README_DIR="${CONF_DIR}/readme"
 
 preinst ()
 {
-    if [[ -f "${SETTING_FILE}" ]]; then
-        cp "${SETTING_FILE}" /tmp/consul_app.ini
+    if [ -d "${CONF_DIR}" ]; then
+        mkdir "${BACKUP_DIR}"
+        cp -r "${CONF_DIR}/" "${BACKUP_DIR}/"
     fi
+
     exit 0
 }
 
@@ -37,6 +37,7 @@ postinst ()
 {
     # Link
     ln -s ${SYNOPKG_PKGDEST} ${INSTALL_DIR}
+    ln -s "${INSTALL_DIR}/${PACKAGE}/${DNAME}" "/usr/local/bin/${DNAME}"
 
     # to create log at each start 
     if [ "${wizard_create_log}" == "true" ]; then
@@ -45,10 +46,6 @@ postinst ()
 
     # Add firewall config
     ${SERVICETOOL} --install-configure-file --package ${FWPORTS} >> /dev/null
-
-    if [[ -f "/tmp/consul_app.ini" ]]; then
-        mkdir -p "${CONF_DIR}"
-    fi
 
     exit 0
 }
@@ -70,6 +67,7 @@ postuninst ()
 {
     # Remove link
     rm -f ${INSTALL_DIR}
+    rm -f "/usr/local/bin/${DNAME}"
 
     # remove log file
     rm -f ${LOG_FILE}

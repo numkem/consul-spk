@@ -8,10 +8,18 @@ DNAME="consul"
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
 DIR_CONSUL="${INSTALL_DIR}/consul"
-consul="${DIR_CONSUL}/consul"
+CONSUL="${DIR_CONSUL}/consul"
+CONF_DIR="${DIR_NAME}/conf.d"
+ALT_CONF_DIR="/etc/consul"
 PID_FILE="/var/run/consul.pid"
 LOG_FILE="/var/log/consul.log"
-ARGS="agent -config-dir=$DIR_CONSUL/conf.d/"
+
+# If configurations are found in $ALT_CONF_DIR, use it
+if [ -d "${ALT_CONF_DIR}" ];
+then
+    CONF_DIR="${ALT_CONF_DIR}"
+fi
+ARGS="agent -config-dir=${CONF_DIR}"
 
 export HOME=${DIR_CONSUL}
 export USER=root
@@ -19,7 +27,8 @@ export USERNAME=root
 
 start_daemon ()
 {
-    ${consul} $ARGS > ${LOG_FILE} 2>&1 &
+    echo "Using configuration file in ${CONFIG_DIR}" >> $LOG_FILE
+    ${CONSUL} $ARGS >> ${LOG_FILE} 2>&1 &
     echo $! > ${PID_FILE}
 }
 
