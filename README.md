@@ -17,7 +17,7 @@ Finally, install with Consul web installation.
 
 ## Configuration
 
-You can store your configuration using a `conf.d` folder inside `1_create_package/consul/`. If you don' want to ship your configurations with the package, you can use `/etc/consul`.
+You can store your configuration using a `conf.d` folder inside `1_create_package/consul/`. If you don't want to ship your configurations with the package, you can use `/etc/consul`.
 
 ## To use with another arch
 
