@@ -1,6 +1,6 @@
 # consul-spk
 
-This package is heavily based from the work done for [consul-spk](https://github.com/alexandregz/gogs-spk)
+This package is heavily based from the work done for [gogs-spk](https://github.com/alexandregz/gogs-spk)
 
 [Consul](https://consul.io) (Service mesh) SPK package ([Synology PacKages](https://www.synology.com/en-us/dsm/app_packages))
 
