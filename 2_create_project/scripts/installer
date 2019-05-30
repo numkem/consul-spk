@@ -11,10 +11,10 @@ PATH="${INSTALL_DIR}:${PATH}"
 SERVICETOOL="/usr/syno/bin/servicetool"
 FWPORTS="/var/packages/${DNAME}/scripts/${PACKAGE}.sc"
 
-FILE_CREATE_LOG="${INSTALL_DIR}/consul/wizard_create_log"
+FILE_CREATE_LOG="${INSTALL_DIR}/wizard_create_log"
 LOG_FILE="/var/log/consul.log"
 
-CONF_DIR="${INSTALL_DIR}/consul/conf.d"
+CONF_DIR="${INSTALL_DIR}/conf.d"
 
 BACKUP_DIR="/tmp/consul_backup"
 

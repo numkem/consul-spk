@@ -10,14 +10,9 @@ Install Consul into a Synology NAS.
 
 Only tested on x64 (DS916+) could work on ARM since there an available consul binary.
 
-## Usage
-
-Change **Package Center -> Trust Level** to **Any Publisher** and import manually the package from **Manual install**.
-Finally, install with Consul web installation.
-
 ## Configuration
 
-You can store your configuration using a `conf.d` folder inside `1_create_package/consul/`. If you don't want to ship your configurations with the package, you can use `/etc/consul`.
+You can store your configuration using a `conf.d` folder inside `1_create_package/consul/`. If you don't want to ship your configurations with the package, you can use `/usr/local/consul/conf.d/`.
 
 ## To use with another arch
 

@@ -7,9 +7,8 @@ DNAME="consul"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
-DIR_CONSUL="${INSTALL_DIR}/consul"
-CONSUL="${DIR_CONSUL}/consul"
-CONF_DIR="${DIR_NAME}/conf.d"
+CONSUL="${INSTALL_DIR}/consul"
+CONF_DIR="${INSTALL_DIR}/conf.d"
 ALT_CONF_DIR="/etc/consul"
 PID_FILE="/var/run/consul.pid"
 LOG_FILE="/var/log/consul.log"
@@ -21,7 +20,7 @@ then
 fi
 ARGS="agent -config-dir=${CONF_DIR}"
 
-export HOME=${DIR_CONSUL}
+export HOME=${INSTALL_DIR}
 export USER=root
 export USERNAME=root
 
