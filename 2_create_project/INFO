@@ -1,5 +1,5 @@
 package="consul"
-version="1.6.1"
+version="1.7.2"
 description="Consul is a distributed, highly available, and data center aware solution to connect and configure applications across dynamic, distributed infrastructure."
 support_url="https://github.com/hashicorp/consul/"
 displayname="consul"
