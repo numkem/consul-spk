@@ -18,7 +18,7 @@ You can store your configuration using a `conf.d` folder inside `1_create_packag
 
 Download the binary from https://www.consul.io/downloads.html, replace the content from **1_create_package/consul** directory and exec create_spk.sh:
 
-```~/src/consul-spk(master)$ rm -rf 1_create_package/consul/ && unzip consul_1.4.4_linux_amd64.zip && mv consul ./1_create_package/```
+```~/src/consul-spk(master)$ rm -rf 1_create_package/consul/ && unzip consul_1.8.4_linux_amd64.zip && mv consul ./1_create_package/```
 
 ```$ sh create_spk.sh```
 

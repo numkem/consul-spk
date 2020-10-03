@@ -1,0 +1,15 @@
+{
+"bind_addr": "192.168.2.113", 
+"datacenter": "dc1",
+"data_dir": "/volume1/@appstore/consul/data",
+"encrypt": "changeme",
+"log_level": "INFO",
+"enable_syslog": true,
+"enable_debug": true,
+"node_name": "consul1",
+"server": true,
+"bootstrap_expect": 1,
+"leave_on_terminate": false,
+"skip_leave_on_interrupt": true,
+"rejoin_after_leave": true
+}
