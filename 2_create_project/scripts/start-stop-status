@@ -19,7 +19,7 @@ if [ -d "${ALT_CONF_DIR}" ];
 then
     CONF_DIR="${ALT_CONF_DIR}"
 fi
-ARGS="agent -config-dir=${CONF_DIR}"
+ARGS="agent -config-dir=${CONF_DIR} -data-dir=/usr/local/consul/data"
 
 export HOME=${DIR_CONSUL}
 export USER=root
