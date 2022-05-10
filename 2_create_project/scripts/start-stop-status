@@ -27,7 +27,14 @@ export USERNAME=root
 
 start_daemon ()
 {
-    echo "Using configuration file in ${CONFIG_DIR}" >> $LOG_FILE
+    echo "Using configuration file in ${CONF_DIR}" >> $LOG_FILE
+    ipfound=0
+    while ip -f inet addr show dev eth0 | grep -Po 'inet 192.168' > /dev/null; do
+      echo "waiting for IP address" >> $LOG_FILE
+      sleep 1
+    done
+
+    ifconfig >> $LOG_FILE
     ${CONSUL} $ARGS >> ${LOG_FILE} 2>&1 &
     echo $! > ${PID_FILE}
 }
