@@ -1,1 +1,5 @@
-{"service-cfg":{}}
+{
+    "usr-local-linker": {
+        "bin": ["usr/local/bin/consul"]
+    }
+}

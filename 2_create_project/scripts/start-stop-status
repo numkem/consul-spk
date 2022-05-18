@@ -6,24 +6,21 @@ PACKAGE="consul"
 DNAME="consul"
 
 # Others
-INSTALL_DIR="/usr/local/${PACKAGE}"
-DIR_CONSUL="${INSTALL_DIR}/consul"
-CONSUL="${DIR_CONSUL}/consul"
-CONF_DIR="${DIR_NAME}/conf.d"
-ALT_CONF_DIR="/etc/consul"
-PID_FILE="/var/run/consul.pid"
-LOG_FILE="/var/log/consul.log"
 
-# If configurations are found in $ALT_CONF_DIR, use it
-if [ -d "${ALT_CONF_DIR}" ];
-then
-    CONF_DIR="${ALT_CONF_DIR}"
-fi
-ARGS="agent -config-dir=${CONF_DIR} -data-dir=/usr/local/consul/data"
+ROOT_DIR="/var/packages/consul"
+CONF_DIR="${ROOT_DIR}/etc"
+VAR_DIR="${ROOT_DIR}/var"
 
-export HOME=${DIR_CONSUL}
-export USER=root
-export USERNAME=root
+CONSUL="/usr/local/bin/consul"
+PID_FILE="${VAR_DIR}/consul.pid"
+LOG_FILE="${VAR_DIR}/consul.log"
+
+
+ARGS="agent -config-dir=${CONF_DIR} -data-dir=${VAR_DIR}/data"
+
+export HOME="${ROOT_DIR}/home"
+export USER=consul
+export USERNAME=consul
 
 start_daemon ()
 {
